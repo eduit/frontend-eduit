@@ -1,42 +1,133 @@
-/* Header */
-.large-header {
-	position: relative;
-	width: 100%;
-	background: #333;
-	overflow: hidden;
-	background-size: cover;
-	background-position: center center;
-	z-index: 1;
+* {
+   box-sizing: border-box;
 }
 
-#large-header {
-	background-image: url('http://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg');
+.timeline {
+   position: relative;
+   max-width: 800px;
+   margin: 0 auto;
+   padding-top: 20px;
+   background-color: inherit;
 }
 
-.main-title {
-	position: absolute;
-	margin: 0;
-	padding: 0;
-	color: #f9f1e9;
-	text-align: center;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate3d(-50%,-50%,0);
-	transform: translate3d(-50%,-50%,0);
+.timeline:after {
+   content: '';
+   position: absolute;
+   width: 5px;
+   background-color: #3290B1;
+   left: 50%;
+   top: 0;
+   bottom: 0;
+   margin-left: -2px;
 }
 
-.demo-1 .main-title {
-	text-transform: uppercase;
-	font-size: 4.2em;
-	letter-spacing: 0.1em;
+.timeline--first:after {
+   top: 20px;
 }
 
-.main-title .thin {
-	font-weight: 200;
+.era {
+   text-align: center;
+   position: relative;
+   z-index: 1;
+   padding-bottom: 20px;
 }
 
-@media only screen and (max-width : 768px) {
-	.demo-1 .main-title {
-		font-size: 3em;
-	}
+.era__title {
+   background-color: #3290B1;
+   color: #EEEEEE;
+   display: inline-block;
+   padding: 10px 20px;
+   border-radius: 4px;
+   cursor: default;
+}
+
+.entry {
+   padding: 10px 30px 40px 30px;
+   width: 50%;
+   position: relative;
+   background-color: inherit;
+}
+
+.entry--right {
+   margin-left: 50%;
+}
+
+.entry__content {
+   padding: 20px 30px;
+   background-color: #EEEEEE;
+   position: relative;
+   border-radius: 4px;
+   cursor: default;
+   transition: all 0.3s ease 0s;
+   box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.entry__content:hover {
+   background-color: #FFFFFF;
+}
+
+.entry:before {
+   content: " ";
+   height: 0;
+   position: absolute;
+   top: 20px;
+   width: 0;
+   z-index: 1;
+}
+
+.entry:after {
+   content: '';
+   position: absolute;
+   width: 24px;
+   height: 24px;
+   right: -17px;
+   background-color: #EEEEEE;
+   border: 4px solid #3290B1;
+   top: 20px;
+   border-radius: 50%;
+   z-index: 1;
+}
+
+.entry--right:after {
+   right: auto;
+   left: -16px;
+}
+
+h2 {
+   color: #525252;
+   margin-bottom: 0.5em;
+   font-family: "Raleway", Helvetica, sans-serif;
+   font-size: 22px;
+   font-weight: bold;
+}
+
+p {
+   color: #686868;
+   font-family: "Raleway", Helvetica, sans-serif;
+   font-size: 15px;
+   line-height: 1.4;
+}
+
+@media all and (max-width: 500px) {
+   .timeline:after {
+      left: 33.75px;
+   }
+   .era {
+      text-align: left;
+      padding-left: 31.875px;
+   }
+   .entry {
+      width: 100%;
+      margin-left: 0;
+      padding-left: 64px;
+      padding-right: 20px;
+   }
+   .entry:before {
+      right: auto;
+      left: 56px;
+      margin-left: 0;
+   }
+   .entry:after {
+      left: 15px;
+   }
 }
